@@ -1,0 +1,21 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+ 
+    <!--Register the Event to be able to fire it and send Context to the Coveo Case Deflection Component -->
+    <aura:registerEvent name="appEvent" type="selfService:caseCreateFieldChange"/>
+ 
+    <!-- Initiate the Case Creation Form -->
+    <lightning:recordEditForm aura:id="recordEditForm"
+                           objectApiName="Case">
+ 
+        <lightning:messages />
+ 
+        <lightning:inputField fieldName="Product__c" onchange="{!c.itemsChange}"/>
+        <lightning:inputField fieldName="Version__c" onchange="{!c.itemsChange}"/>
+        <lightning:inputField fieldName="Subject" onchange="{!c.itemsChange}"/>
+        <lightning:inputField fieldName="Description" onchange="{!c.itemsChange}"/>
+ 
+        <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+ 
+    </lightning:recordEditForm>
+ 
+</aura:component>
